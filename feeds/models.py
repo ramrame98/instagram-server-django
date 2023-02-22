@@ -12,3 +12,13 @@ class Feed(CommonModel):
   contentImg = models.URLField(blank=True) # 게시글 이미지
   likesNum = models.PositiveIntegerField(default=0) # 좋아요 갯수
   reviewsNum = models.PositiveIntegerField(default=0) # 댓글 갯수
+  # 1:N (User:Feed), N이 ForeignKey를 가진다.
+  user = models.ForeignKey(
+    "users.User",
+    # user가 지워졌을 때
+    on_delete=models.CASCADE, # 유저 삭제시 -> 게시글 삭제됨.
+    related_name="feeds" # reverse accessor에서 불러올 이름 (users.feed_set.all() = users.feeds.all())
+  )
+  
+  def __str__(self) -> str:
+    return self.caption

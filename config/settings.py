@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "feeds.apps.FeedsConfig",
     "reviews.apps.ReviewsConfig",
     "common.apps.CommonConfig",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [

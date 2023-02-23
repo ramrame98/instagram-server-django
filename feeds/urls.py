@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import AllFeeds, FeedDetail,FeedReviews
+from .views import AllFeeds, UserNameFeeds
 
 urlpatterns = [
     path("", AllFeeds.as_view()),
-    path("<int:pk>", FeedDetail.as_view()),
-    path("<int:pk>/reviews", FeedReviews.as_view())
+    path("<str:username>", UserNameFeeds.as_view())
 ]
+
 
 
 # api/v1/feeds
